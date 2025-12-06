@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react"
 import { Wifi, Zap, Shield, Activity, ChevronRight, Sparkles, Play } from "lucide-react"
 import Navbar from "./components/navbar"
-import SigmaLogo from './images/sigmaLogo.png'
+import SigmaLogo from '../public/sigmaLogo.png'
 
 export default function LandingPage() {
   const [showFullLogo, setShowFullLogo] = useState(false)

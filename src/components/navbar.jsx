@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import logo from "../images/logo.png";
+import logo from "../../public/logo.png";
 
 export default function Navbar() {
   return (
