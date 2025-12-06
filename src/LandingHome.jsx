@@ -47,7 +47,7 @@ export default function LandingPage() {
       </div>
 
       <div className="fixed inset-0 pointer-events-none">
-        {[...Array(90)].map((_, i) => (
+        {[...Array(25)].map((_, i) => (
           <div
             key={i}
             className="absolute w-1 h-1 bg-[#A5CEE7] rounded-full animate-pulse"
