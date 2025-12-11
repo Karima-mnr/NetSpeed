@@ -4,6 +4,8 @@ import { useEffect, useState } from "react"
 import { Wifi, Zap, Shield, Activity, ChevronRight, Sparkles, Play } from "lucide-react"
 import Navbar from "./components/navbar"
 import SigmaLogo from '../public/sigmaLogo.png'
+import { useNavigate } from "react-router-dom";
+
 
 export default function LandingPage() {
   const [showFullLogo, setShowFullLogo] = useState(false)
@@ -11,15 +13,17 @@ export default function LandingPage() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
   const [videoOpen, setVideoOpen] = useState(false)
   const [activeStep, setActiveStep] = useState(0)
+    const navigate = useNavigate();
+  
 
   useEffect(() => {
     setTimeout(() => setShowFullLogo(true), 1200)
     setTimeout(() => setShowHero(true), 2600)
-    const handleMouseMove = (e) => {
-      setMousePosition({ x: e.clientX, y: e.clientY })
-    }
-    window.addEventListener("mousemove", handleMouseMove)
-    return () => window.removeEventListener("mousemove", handleMouseMove)
+    // const handleMouseMove = (e) => {
+    //   setMousePosition({ x: e.clientX, y: e.clientY })
+    // }
+    // window.addEventListener("mousemove", handleMouseMove)
+    // return () => window.removeEventListener("mousemove", handleMouseMove)
   }, [])
 
   const BackgroundElements = () => (
@@ -47,7 +51,7 @@ export default function LandingPage() {
       </div>
 
       <div className="fixed inset-0 pointer-events-none">
-        {[...Array(25)].map((_, i) => (
+        {[...Array(35)].map((_, i) => (
           <div
             key={i}
             className="absolute w-1 h-1 bg-[#A5CEE7] rounded-full animate-pulse"
@@ -143,7 +147,8 @@ export default function LandingPage() {
               </div>
 
               <div className="flex flex-col sm:flex-row flex-wrap gap-4 pt-4">
-                <button className="group px-6 sm:px-8 py-3 sm:py-4 rounded-full bg-gradient-to-r from-[#A5CEE7] to-[#669BBC] text-[#003049] font-bold shadow-lg shadow-[#A5CEE7]/30 hover:shadow-xl hover:shadow-[#A5CEE7]/50 transition-all duration-300 hover:scale-105 flex items-center gap-2 justify-center">
+                <button         onClick={() => navigate('/diagnostic')}
+ className="group px-6 sm:px-8 py-3 sm:py-4 rounded-full bg-gradient-to-r from-[#A5CEE7] to-[#669BBC] text-[#003049] font-bold shadow-lg shadow-[#A5CEE7]/30 hover:shadow-xl hover:shadow-[#A5CEE7]/50 transition-all duration-300 hover:scale-105 flex items-center gap-2 justify-center">
                   Start Free Diagnostic
                   <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </button>

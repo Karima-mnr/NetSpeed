@@ -1,9 +1,14 @@
-import { BrowserRouter } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
+import LandingHome from './LandingHome.jsx';
+import Diagnostic from './diagnostic.jsx';
 
 function App() {
   return (
-    <BrowserRouter basename="/NetSpeed">  {/* Add basename */}
-      {/* Your routes here */}
-    </BrowserRouter>
+    <Routes>
+      <Route path="/NetSpeed/" element={<LandingHome />} />
+      <Route path="/diagnostic" element={<Diagnostic />} />
+    </Routes>
   );
 }
+
+export default App;

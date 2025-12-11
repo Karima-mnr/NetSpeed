@@ -1,8 +1,11 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 import logo from "../../public/logo.png";
 
 export default function Navbar() {
+  const navigate = useNavigate();
+
   return (
     <motion.nav
       initial={{ y: -50, opacity: 0 }}
@@ -25,6 +28,7 @@ export default function Navbar() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: "easeOut" }}
           whileHover={{ scale: 1.05 }}
+          onClick={() => navigate('/')}
         />
 
         {/* NAV LINKS */}
@@ -54,6 +58,7 @@ export default function Navbar() {
 
         {/* CTA BUTTON — Gradient + Pro Animation */}
         <motion.button
+        onClick={() => navigate('/diagnostic')}
         whileHover={{ scale: 1.08, y: -2 }}
         whileTap={{ scale: 0.95 }}
         className="
@@ -65,6 +70,7 @@ export default function Navbar() {
             hover:shadow-[0_0_35px_rgba(165,206,231,0.55)]
             transition-all duration-300
             relative overflow-hidden
+            group
         "
         >
         <span className="relative z-10">Start Diagnostic</span>
